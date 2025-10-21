@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindLoop - AI-Powered Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h1>MindLoop</h1>
+                <p>AI-Powered Learning</p>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="dashboard">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Dashboard</span>
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-page="learn">
+                        <span class="nav-icon">🧠</span>
+                        <span class="nav-text">Learn</span>
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-page="explorer">
+                        <span class="nav-icon">🎯</span>
+                        <span class="nav-text">Explorer</span>
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-page="challenger">
+                        <span class="nav-icon">⚡</span>
+                        <span class="nav-text">Challenger</span>
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-page="masters">
+                        <span class="nav-icon">👑</span>
+                        <span class="nav-text">Masters</span>
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-page="progress">
+                        <span class="nav-icon">📈</span>
+                        <span class="nav-text">Progress</span>
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-page="achievements">
+                        <span class="nav-icon">🏆</span>
+                        <span class="nav-text">Achievements</span>
+                    </a></li>
+                    <li><a href="#" class="nav-link" data-page="settings">
+                        <span class="nav-icon">⚙️</span>
+                        <span class="nav-text">Settings</span>
+                    </a></li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-details">
+                        <div class="user-name">Student</div>
+                        <div class="user-level">Explorer</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>
+                        <div class="hamburger"></div>
+                    </button>
+                    <div class="header-info">
+                        <h2 id="page-title">Dashboard</h2>
+                        <p id="page-subtitle">Welcome to your AI-powered learning journey</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="theme-toggle" id="theme-toggle" title="Toggle Dark Mode">
+                            <span class="theme-icon">🌙</span>
+                        </button>
+                        <div class="streak-indicator">
+                            <span class="streak-icon">🔥</span>
+                            <span id="header-streak">7</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Page -->
+            <div id="dashboard" class="page-content active">
+                <div class="streak-section">
+                    <div class="streak-content">
+                        <div class="streak-info">
+                            <div class="streak-title">
+                                <span id="current-streak">7</span>-Day Streak
+                            </div>
+                            <div class="streak-subtitle">Keep learning to maintain your streak!</div>
+                        </div>
+                        <div class="streak-stats">
+                            <div class="total-points">
+                                <div class="points-number" id="total-points">2,450</div>
+                                <div class="points-label">Total Points</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="streak-progress">
+                        <div class="progress-track">
+                            <div class="progress-fill" id="streak-progress-fill" style="width: 47%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="upload-section">
+                    <div class="upload-header">
+                        <h3>Upload Learning Materials</h3>
+                        <p>Transform your documents into interactive AI-powered learning experiences</p>
+                    </div>
+                    <form class="upload-form" id="file-upload-form">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="file-input" name="files" multiple accept=".pdf,.docx,.txt,.pptx,.doc">
+                            <label for="file-input" class="file-input-label">
+                                <div class="upload-icon">📁</div>
+                                <div class="upload-text">
+                                    <span class="primary-text">Click to upload or drag and drop</span>
+                                    <span class="secondary-text">Your documents will be processed by AI</span>
+                                    <span class="file-types">Supports PDF, DOCX, TXT, PPTX files</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div id="file-list" class="file-list"></div>
+                        <div class="upload-actions">
+                            <button type="submit" class="upload-button" id="upload-button">
+                                <span class="button-icon">🚀</span>
+                                <span class="button-text">Process with AI</span>
+                                <div class="button-loader"></div>
+                            </button>
+                        </div>
+                    </form>
+                    <div id="upload-status" class="upload-status"></div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="completed-levels">12</div>
+                            <div class="stat-label">Completed Levels</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="processed-docs">5</div>
+                            <div class="stat-label">Documents Processed</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🤖</div>
+                        <div class="stat-content">
+                            <div class="stat-number" id="ai-questions">127</div>
+                            <div class="stat-label">AI Questions</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>Recent Activity</h3>
+                    <div id="activity-list" class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">🎯</div>
+                            <div class="activity-content">
+                                <div class="activity-text">Completed "Document Basics" level</div>
+                                <div class="activity-time">2 hours ago</div>
+                            </div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-icon">📚</div>
+                            <div class="activity-content">
+                                <div class="activity-text">Uploaded "Study Guide.pdf"</div>
+                                <div class="activity-time">1 day ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learn Page -->
+            <div id="learn" class="page-content">
+                <div class="learn-header">
+                    <h2>AI-Powered Learning</h2>
+                    <p>Upload your documents and let our AI create personalized learning experiences tailored to your level.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🤖</span>
+                        <h4>AI Document Analysis</h4>
+                        <p>Advanced AI processes your documents to identify key concepts and create targeted questions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🎯</span>
+                        <h4>Adaptive Learning</h4>
+                        <p>Questions adjust to your skill level, ensuring optimal challenge and learning progression.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📊</span>
+                        <h4>Progress Tracking</h4>
+                        <p>Detailed analytics help you understand your strengths and areas for improvement.</p>
+                    </div>
+                </div>
+
+                <div class="upload-section">
+                    <div class="upload-header">
+                        <h3>Start Learning</h3>
+                        <p>Upload a document to generate your personalized learning experience</p>
+                    </div>
+                    <div class="file-input-wrapper large">
+                        <input type="file" id="learn-file-input" accept=".pdf,.docx,.txt,.pptx,.doc">
+                        <label for="learn-file-input" class="file-input-label">
+                            <div class="upload-icon large">🚀</div>
+                            <div class="upload-text">
+                                <span class="primary-text">Drop your file here or click to browse</span>
+                                <span class="secondary-text">AI will analyze and create learning levels instantly</span>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="upload-status"></div>
+                </div>
+            </div>
+
+            <!-- Explorer Page -->
+            <div id="explorer" class="page-content">
+                <div class="levels-header">
+                    <div class="level-badge explorer">Explorer</div>
+                    <p>Master the fundamentals with beginner-friendly challenges and build your foundation.</p>
+                </div>
+                <div class="levels-grid" id="explorer-levels">
+                    <div class="level-card unlocked">
+                        <div class="level-status">🔓</div>
+                        <h4>Getting Started</h4>
+                        <p>Learn the basics of document analysis and question types.</p>
+                        <div class="level-meta">
+                            <span>8 questions</span>
+                            <span>15 min</span>
+                        </div>
+                        <div class="level-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                            <span class="progress-text">Completed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other pages (challenger, masters, progress, achievements, settings) -->
+            <div id="challenger" class="page-content">
+                <div class="levels-header">
+                    <div class="level-badge challenger">Challenger</div>
+                    <p>Test your knowledge with intermediate challenges that push your understanding.</p>
+                </div>
+                <div class="levels-grid" id="challenger-levels"></div>
+            </div>
+
+            <div id="masters" class="page-content">
+                <div class="levels-header">
+                    <div class="level-badge masters">Masters</div>
+                    <p>Prove your expertise with advanced scenarios and complex problem-solving.</p>
+                </div>
+                <div class="levels-grid" id="masters-levels"></div>
+            </div>
+
+            <div id="progress" class="page-content">
+                <div class="progress-overview">
+                    <div class="progress-card">
+                        <h3>Learning Progress</h3>
+                        <div class="progress-items">
+                            <div class="progress-item">
+                                <div class="progress-label">
+                                    <span>Overall Progress</span>
+                                    <span class="progress-fraction">12/50</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 24%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="achievements" class="page-content">
+                <div class="achievements-grid">
+                    <div class="achievement-card unlocked">
+                        <span class="achievement-icon">🔥</span>
+                        <h4>First Steps</h4>
+                        <p>Complete your first learning level</p>
+                        <div class="achievement-status unlocked">Unlocked</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="settings" class="page-content">
+                <div class="settings-container">
+                    <div class="settings-section">
+                        <h3>Preferences</h3>
+                        <form class="settings-form" id="settings-form">
+                            <div class="setting-group">
+                                <label class="setting-label">
+                                    <input type="checkbox" id="notifications" name="notifications">
+                                    <span class="setting-text">Enable notifications</span>
+                                </label>
+                            </div>
+                            <div class="setting-group">
+                                <label class="setting-text-label" for="difficulty">Difficulty Level</label>
+                                <select class="setting-select" id="difficulty" name="difficulty">
+                                    <option value="adaptive">Adaptive</option>
+                                    <option value="easy">Easy</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="save-button">Save Settings</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Processing your document...</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
