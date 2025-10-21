@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoot the Balloon Quiz Game</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>💻 Code Balloon Quiz 💻</h1>
+            <div class="score-board">
+                <span>Score: <span id="score">0</span></span>
+                <span>Question: <span id="question-number">1</span>/5</span>
+            </div>
+        </header>
+
+        <div class="question-container">
+            <h2 id="question-text">Loading question...</h2>
+        </div>
+
+        <div class="game-area" id="game-area">
+            <!-- Balloons will be dynamically added here -->
+        </div>
+
+        <div class="game-over" id="game-over" style="display: none;">
+            <h2>🎉 Game Over! 🎉</h2>
+            <p>Your final score: <span id="final-score">0</span>/5</p>
+            <button onclick="restartGame()">Play Again</button>
+        </div>
+
+        <div class="instructions">
+            <p>Click on the balloon with the correct coding answer!</p>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
